@@ -1,0 +1,25 @@
+{
+  "rewrites": [
+    { 
+      "source": "/(.*)", 
+      "destination": "/api/index" 
+    }
+  ],
+  "functions": {
+    "api/index.py": {  
+      "maxDuration": 300
+    }
+  },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "s-maxage=60, stale-while-revalidate=120" },
+        { "key": "Access-Control-Allow-Origin", "value": "https://es.entercinema.com" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, POST, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type, Authorization" },
+        { "key": "Access-Control-Allow-Credentials", "value": "true" }
+      ]
+    }
+  ]
+}
